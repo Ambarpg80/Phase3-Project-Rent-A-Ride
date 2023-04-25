@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2023_04_23_210128) do
 
   create_table "reservations", force: :cascade do |t|
     t.string "full_name"
-    t.boolean "driving_license"
+    t.string "driving_license"
     t.string "payment_method"
     t.integer "vehicle_id"
     t.datetime "created_at", precision: 6, null: false

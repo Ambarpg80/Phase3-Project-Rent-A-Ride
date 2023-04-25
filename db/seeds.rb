@@ -1,4 +1,4 @@
-puts "🌱 Seeding vehicles..."
+puts "🌱 Seeding reservations..."
 
 # Seed your database here
 50.times do
@@ -16,7 +16,9 @@ puts "🌱 Seeding vehicles..."
         full_name: Faker::Name.name ,
         driving_license: Faker::DrivingLicence.usa_driving_licence, 
         payment_method: Faker::Finance.credit_card || "cash",
+        vehicle_id: Reservation.add_vid
     )
+    
 
   end
 
