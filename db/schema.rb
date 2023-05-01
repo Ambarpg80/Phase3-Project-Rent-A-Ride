@@ -13,12 +13,13 @@
 ActiveRecord::Schema.define(version: 2023_04_23_210128) do
 
   create_table "reservations", force: :cascade do |t|
+    t.integer "vehicle_id"
     t.string "full_name"
     t.string "driving_license"
     t.string "payment_method"
-    t.integer "vehicle_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["vehicle_id"], name: "index_reservations_on_vehicle_id"
   end
 
   create_table "vehicles", force: :cascade do |t|
@@ -29,4 +30,5 @@ ActiveRecord::Schema.define(version: 2023_04_23_210128) do
     t.boolean "reserved"
   end
 
+  add_foreign_key "reservations", "vehicles"
 end

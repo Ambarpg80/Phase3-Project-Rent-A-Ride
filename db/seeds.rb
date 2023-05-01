@@ -1,8 +1,9 @@
 puts "🌱 Seeding reservations..."
 
 # Seed your database here
-50.times do
-    # create a game with random data
+# def seed_vehicles
+10.times do
+    
     Vehicle.create(
       vin: Faker::Vehicle.vin,
       car_type: Faker::Vehicle.car_type,
@@ -12,7 +13,9 @@ puts "🌱 Seeding reservations..."
     )
   end
 
-  19.times do
+
+
+  4.times do
     Reservation.create(
         full_name: Faker::Name.name ,
         driving_license: Faker::DrivingLicence.usa_driving_licence, 
@@ -20,7 +23,7 @@ puts "🌱 Seeding reservations..."
         vehicle_id: Reservation.add_vid
       )
     Vehicle.update(
-      reserved: Vehicle.is_reserved?
+    reserved: Vehicle.all.is_reserved?(:id)
     )
   end
 
