@@ -1,9 +1,8 @@
 puts "🌱 Seeding reservations..."
 
 # Seed your database here
-# def seed_vehicles
+
 10.times do
-    
     Vehicle.create(
       vin: Faker::Vehicle.vin,
       car_type: Faker::Vehicle.car_type,
@@ -20,11 +19,14 @@ puts "🌱 Seeding reservations..."
         full_name: Faker::Name.name ,
         driving_license: Faker::DrivingLicence.usa_driving_licence, 
         payment_method: Faker::Finance.credit_card,
-        vehicle_id: Reservation.add_vid
+        vehicles_id: Reservation.add_vid
       )
     Vehicle.update(
-    reserved: Vehicle.all.is_reserved?(:id)
-    )
+      reserved: Vehicle.is_reserved?(:id)
+    ) 
   end
+  
+  
+ 
 
 puts "✅ Done seeding!"
