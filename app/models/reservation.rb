@@ -1,6 +1,6 @@
 
 class Reservation < ActiveRecord::Base
-	belongs_to :vehicles
+	belongs_to :vehicle
 
      def self.add_vid  #return a random vehicle id
          ran_num = Vehicle.all.map {|car| car.id}
