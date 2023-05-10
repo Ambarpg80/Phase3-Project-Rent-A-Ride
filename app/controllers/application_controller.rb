@@ -1,46 +1,56 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
+# ================= READ AND UPDATE VEHICLE ========================
+
   # show all vehicles
   get "/vehicles" do
     vehicles = Vehicle.all
     vehicles.to_json(include: :reservations)
+  end 
+  
+  #update vehicle to show it's reserved
+  patch "/vehicles/:id" do
+    vehicle = Vehicle.find(params[:id])
+    vehicle.update(reserved: params[:reserved])
+    vehicle.to_json
   end
+
+# ======================= CRUD FOR RESERVATION ===========================
 
   #show reservations
   get "/vehicles/reservations" do
-    reservation = Reservation.all
-    reservation.to_json
+    reserved = Reservation.all
+    reserved.to_json
   end
 
   #post new reservation
   post "/vehicles/reservations" do
-    reserve = Reservation.create(
+    reserved = Reservation.create(
               vehicle_id: params[:vehicle_id],
               full_name: params[:full_name],
               driving_license: params[:driving_license],
               payment_method: params[:payment_method]
     )
-    # reserve = Reservation.create(params)
-    reserve.to_json
+    reserved.to_json
   end
 
   #update reservation
   patch "/vehicles/reservations/:id" do
-    vehicle = Reservation.find(params[:id])
-    vehicle.update(vehicle_id: params[:vehicle_id],
+    reserved = Reservation.find(params[:id])
+    reserved.update(vehicle_id: params[:vehicle_id],
                     full_name: params[:full_name],
                     driving_license: params[:driving_license],
                     payment_method: params[:payment_method]
     )
-    vehicle.to_json
+    reserved.to_json
   end
 
   #delete reservation
   delete "/vehicles/reservations/:id" do
-    vehicles = Reservation.find(params[:id])
-    vehicles.destroy
-    vehicles.to_json
+    reserved = Reservation.find(params[:id])
+    reserved.destroy
+    reserved.to_json
   end
 
 end
