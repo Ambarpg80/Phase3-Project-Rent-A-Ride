@@ -33,6 +33,7 @@ class ApplicationController < Sinatra::Base
                     driving_license: params[:driving_license],
                     payment_method: params[:payment_method]
     )
+    vehicle.to_json
   end
 
   #delete reservation
