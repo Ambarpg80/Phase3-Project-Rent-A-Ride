@@ -8,6 +8,17 @@ class ApplicationController < Sinatra::Base
     vehicles = Vehicle.all
     vehicles.to_json(include: :reservations)
   end 
+
+  post "/vehicles" do
+    new_vehicle = Vehicle.create(
+              vin: params[:vin],
+              car_type: params[:car_type],
+              make_and_model: params[:make_and_model],
+              license_plate: params[:license_plate],
+              reserved: params[:reserved]
+    )
+    new_vehicle.to_json
+  end
   
   #update vehicle to show it's reserved
   patch "/vehicles/:id" do
