@@ -6,7 +6,6 @@ class CreateVehicles < ActiveRecord::Migration[6.1]
       t.string :car_type      
       t.string :make_and_model   
       t.string :license_plate    
-      t.boolean :reserved
     end
 
   end

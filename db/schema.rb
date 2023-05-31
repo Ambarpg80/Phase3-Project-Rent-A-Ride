@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 2023_04_23_210128) do
     t.string "car_type"
     t.string "make_and_model"
     t.string "license_plate"
-    t.boolean "reserved"
   end
 
   add_foreign_key "reservations", "vehicles"
