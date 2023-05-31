@@ -21,14 +21,6 @@ puts "🌱 Seeding reservations..."
       ) 
     end
     
-  Vehicle.all.each{|car|
-      car.update(reserved: Reservation.exists?(vehicle_id: car.id))
-    }
 
-     
- 
-  
-  
- 
 
 puts "✅ Done seeding!"
