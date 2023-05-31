@@ -17,26 +17,21 @@ class ApplicationController < Sinatra::Base
               license_plate: params[:license_plate],
               reserved: params[:reserved]
     )
-    new_vehicle.to_json
+    new_vehicle.to_json(include: :reservations)
   end
   
-  #update vehicle to show it's reserved
-  patch "/vehicles/:id" do
-    vehicle = Vehicle.find(params[:id])
-    vehicle.update(reserved: params[:reserved])
-    vehicle.to_json
-  end
+  
 
 # ======================= CRUD FOR RESERVATION ===========================
 
   #show reservations
-  get "/vehicles/reservations" do
+  get "/reservations" do
     reserved = Reservation.all
     reserved.to_json
   end
 
   #post new reservation
-  post "/vehicles/reservations" do
+  post "/reservations" do
     reserved = Reservation.create(
               vehicle_id: params[:vehicle_id],
               full_name: params[:full_name],
@@ -47,7 +42,7 @@ class ApplicationController < Sinatra::Base
   end
 
   #update reservation
-  patch "/vehicles/reservations/:id" do
+  patch "/reservations/:id" do
     reserved = Reservation.find(params[:id])
     reserved.update(vehicle_id: params[:vehicle_id],
                     full_name: params[:full_name],
@@ -58,7 +53,7 @@ class ApplicationController < Sinatra::Base
   end
 
   #delete reservation
-  delete "/vehicles/reservations/:id" do
+  delete "/reservations/:id" do
     reserved = Reservation.find(params[:id])
     reserved.destroy
     reserved.to_json
