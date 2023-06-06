@@ -14,8 +14,7 @@ class ApplicationController < Sinatra::Base
               vin: params[:vin],
               car_type: params[:car_type],
               make_and_model: params[:make_and_model],
-              license_plate: params[:license_plate],
-              reserved: params[:reserved]
+              license_plate: params[:license_plate]
     )
     new_vehicle.to_json(include: :reservations)
   end
