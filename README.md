@@ -1,8 +1,17 @@
 # Phase 3 Project- Rent A Ride
 
-For this project wanted to challenge myself by creating a car rental application. One of the for this project was showing how to work with a one to many relationship. I am showing this association by having a reservation for a vehicle, but the vehicle can have many reservations. 
+For this project wanted to challenge myself by creating a car rental application. One of the for this project was showing how to work with a one to many relationship. I am showing this association by having a reservation for a vehicle, but the vehicle can have many reservations. This file has a separate repo with additional information corresponding to the Frontend at https://github.com/Ambarpg80/react-rent-a-ride . For my own ease of use I have both repos in one folder and suggest you do the same. 
 
-For our project we were allowed to fork and clone a repo which had a basic setup. This repo included the following folders & files:
+# START UP INSTRUCTIONS AND COMMANDS
+    * To install all necessary gems run command: `bundle install`
+    * To run migrations use the command: `rake db:migrate`
+    * To seed the database run the command: `rake db:seed`
+    * To run backend run command:  `rake server`. The server will run port 3000 or localhost:3000
+    * To run the frontend, cd in to the react-rent-a-ride file and run command `npm start`. The command will run react app on localhost:3001 if 3000 is not available.
+
+# PROJECT INFORMATION AND REQUIREMENTS
+
+# REQUIREMENTS: For our project we were allowed to fork and clone a repo which had a basic setup. This repo included the following folders & files:
   1. .github folder
   2. app folder with folders for controllers and models
   3. config folder
@@ -19,8 +28,9 @@ For our project we were allowed to fork and clone a repo which had a basic setup
   14. Rakefile
   15. README.md file
 
-Steps taken to start the project. 
-Set up the backend database: 
+# Steps taken to start the project. 
+ * Set up the backend database: 
+ 
   - Add files in the models folders for Vehicles and Reservations. 
   - Add the respective Vehicle and Reservation class to in each file with inheirtance from ActiveRecord::Base library so that I can have access to ActiveRecord methods.
   - Perform a bundle installation of the gems in the Gemfile
@@ -36,7 +46,8 @@ Set up the backend database:
 
 see separate repo for any additional information on this projects Frontend : https://github.com/Ambarpg80/react-rent-a-ride
 
-Set up the Frontend: 
+ * Set up the Frontend: 
+
   - Create a react app with the command: npx create-react-app <project-name>
   - Create github repo and initialize git
   - Create components folders and add component files for Vehicle   
